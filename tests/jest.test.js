@@ -14,7 +14,7 @@ const inValidMockFiles = fs.readdirSync(inValidMockDir);
 const readJSONFile = (path) => {
     return JSON.parse(fs.readFileSync(path, 'utf8'));
 };
-const assertMock = (absolutePath, fileName, schema, routeAlias, criteria,) => {
+const assertMock = (absolutePath, fileName, schema, routeAlias, criteria) => {
     const regex = new RegExp(`^${routeAlias}`);
 
     if (regex.test(fileName)) {
