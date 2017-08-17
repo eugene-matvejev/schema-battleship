@@ -1,0 +1,40 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "description": "",
+  "type": "object",
+  "properties": {
+    "playerName": {
+      "id": "properties/playername",
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 255
+    },
+    "opponents": {
+      "id": "properties/opponents",
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 10
+    },
+    "size": {
+      "id": "properties/size",
+      "type": "integer",
+      "minimum": 10,
+      "maximum": 15
+    },
+    "coordinates": {
+      "id": "properties/coordinates/collection",
+      "items": {
+        "id": "properties/coordinates/coordinate",
+        "pattern": "[A-Z][1-9][0-9]{0,1}",
+        "type": "string"
+      },
+      "type": "array"
+    }
+  },
+  "required": [
+    "playerName",
+    "opponents",
+    "size",
+    "coordinates"
+  ]
+}
