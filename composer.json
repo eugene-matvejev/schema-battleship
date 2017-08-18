@@ -1,0 +1,18 @@
+{
+    "name": "eugene-matvejev/battleship-game-api-json-schema",
+    "description": "json schemas and mocks for the battleship game",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Eugene Matvejev",
+            "email": "eugene.matvejev@gmail.com"
+        }
+    ],
+    "require": {
+
+    },
+    "require-dev": {
+
+    }
+}
