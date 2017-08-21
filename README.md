@@ -25,6 +25,17 @@ mocks are validated against schema on every Pull Request | Commit
  * composer
  * json
  * json schema
-  
+
+## how to install
+* php, composer
+ composer provides opportunity to checkout [additional sources of the packages](https://getcomposer.org/doc/05-repositories.md#loading-a-package-from-a-vcs-repository)
+ add another source into your __composer.json__:
+ ```
+ repositories": [
+     { "type": "vcs", "url": "https://github.com/eugene-matvejev/battleship-game-api-json-schema" }
+ ],
+ ```
+ `$ composer install eugene-matvejev/battleship-game-api-json-schema` consider use `--dev` flag to add in _devDependencies_ section
+
 ## how to run tests
  * `$ npm test`
