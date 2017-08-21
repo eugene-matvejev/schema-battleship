@@ -53,7 +53,7 @@ const dataProvider = schemaFiles.map(filename => {
 
 describe(`validate mocks against schemas`, () => {
     dataProvider.forEach(el => {
-        describe(`:: ${el.schemaFile}`, () => {
+        describe(`${el.schemaFile}`, () => {
             const schema = parseJSON(`${schemaDir}/${el.schemaFile}`);
 
             describe(`:: should be valid`, () => {
