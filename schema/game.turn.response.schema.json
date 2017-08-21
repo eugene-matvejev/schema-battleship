@@ -1,0 +1,85 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "description": "response for the game.turn.request.schema.json",
+    "type": "object",
+    "properties": {
+        "result": {
+            "id": "properties/result",
+            "type": "object",
+            "properties": {
+                "id": {
+                    "id": "properties/result/id",
+                    "type": "integer"
+                },
+                "timestamp": {
+                    "id": "properties/result/timestamp",
+                    "type": "string",
+                    "minLength": 1
+                },
+                "player": {
+                    "id": "properties/result/player",
+                    "type": "object",
+                    "properties": {
+                        "id": {
+                            "id": "properties/result/player/id",
+                            "type": "integer"
+                        },
+                        "name": {
+                            "id": "properties/result/player/name",
+                            "type": "string",
+                            "minLength": 1,
+                            "maxLength": 255
+                        },
+                        "flags": {
+                            "id": "properties/result/player/flags",
+                            "type": "integer"
+                        }
+                    },
+                    "required": [
+                        "id",
+                        "name",
+                        "flags"
+                    ]
+                }
+            },
+            "required": [
+                "id",
+                "timestamp",
+                "player"
+            ]
+        },
+        "cells": {
+            "id": "properties/cells/collection",
+            "uniqueItems": true,
+            "type": "array",
+            "minItems": 1,
+            "items": {
+                "properties": {
+                    "id": {
+                        "id": "properties/cells/cell/id",
+                        "type": "integer"
+                    },
+                    "coordinate": {
+                        "id": "properties/cells/cell/coordinate",
+                        "type": "string",
+                        "minLength": 2,
+                        "maxLength": 3,
+                        "pattern": "[A-Z][1-9][0-9]{0,1}"
+                    },
+                    "flags": {
+                        "id": "properties/cells/cell/flags",
+                        "type": "integer"
+                    }
+                },
+                "required": [
+                    "id",
+                    "coordinate",
+                    "flags"
+                ]
+            }
+        }
+    },
+    "required": [
+        "cells"
+    ]
+}
