@@ -12,6 +12,8 @@ the purpose of this repository is to store JSON schemas for the API responses|re
 
 so whenever you're testing front-end or back-end you can relay on schemas and mocks - instead of using real back-end for request/receive data
 
+_every JSON file is stored in_ '__PRETTY' format__
+
 mocks are validated against schema on every Pull Request | Commit
 
 ## THIS IS SPARE TIME PROJECT, WORK IN PROGRESS! HIGHLY EXPERIMENTAL!!!
