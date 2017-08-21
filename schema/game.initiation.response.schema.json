@@ -1,0 +1,77 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "description": "response for the game.initialtion.request.schema.json",
+  "type": "array",
+  "minItems": 2,
+  "uniqueItems": true,
+  "items": {
+    "id": "properties/collection",
+    "type": "object",
+    "properties": {
+      "id": {
+        "id": "properties/collection/battlefield/id",
+        "type": "integer"
+      },
+      "player": {
+        "id": "properties/collection/battlefield/player",
+        "type": "object",
+        "properties": {
+          "id": {
+            "id": "properties/collection/battlefield/player/id",
+            "type": "integer"
+          },
+          "name": {
+            "id": "properties/collection/battlefield/player/name",
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 255
+          },
+          "flags": {
+            "id": "properties/collection/battlefield/player/flags",
+            "type": "integer"
+          }
+        },
+        "required": [
+          "id",
+          "name",
+          "flags"
+        ]
+      },
+      "cells": {
+        "id": "properties/collection/battlefield/cells/collection",
+        "type": "array",
+        "uniqueItems": true,
+        "minItems": 1,
+        "items": {
+          "properties": {
+            "id": {
+              "id": "properties/collection/battlefield/cells/cell/id",
+              "type": "integer"
+            },
+            "coordinate": {
+              "id": "properties/collection/battlefield/cells/cell/coordinate",
+              "type": "string",
+              "minLength": 2,
+              "maxLength": 3,
+              "pattern": "[A-Z][1-9][0-9]{0,1}"
+            },
+            "flags": {
+              "id": "properties/collection/battlefield/cells/cell/flags",
+              "type": "integer"
+            }
+          },
+          "required": [
+            "id",
+            "coordinate",
+            "flags"
+          ]
+        }
+      }
+    },
+    "required": [
+      "id",
+      "player",
+      "cells"
+    ]
+  }
+}
