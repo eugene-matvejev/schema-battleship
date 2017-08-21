@@ -7,8 +7,8 @@
 | _< Circle CI >_     | [![build][circle.ci-master-badge]][circle.ci-master-link]
 
 
-# Battleship Game API response/request JSON schemas
-the purpose of this repository is to store JSON schemas for the API responses|requests of the [battleship-game-api](https://github.com/eugene-matvejev/battleship-game-api) as well as some hard-coded mocks which represets business logic, as schema can't always represent business logic
+# Battleship Game API responses/requests JSON schemas
+the purpose of this repository is to store JSON schemas for the API responses|requests of the [battleship-game-api](https://github.com/eugene-matvejev/battleship-game-api) as well as some hard-coded mocks which represets business logic _as schema can't always represent business logic_
 
 mocks are validated against schema on every Pull Request | Commit
 
