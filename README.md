@@ -8,8 +8,7 @@
 
 
 # Battleship Game API response/request JSON schemas
-
-the purpose of this repository is to store JSON schemas for the API responses|requests of the [battleship-game-api](https://github.com/eugene-matvejev/battleship-game-api) as well as some hard-coded mocks which represets business logic, as schema can't always represent business logic.
+the purpose of this repository is to store JSON schemas for the API responses|requests of the [battleship-game-api](https://github.com/eugene-matvejev/battleship-game-api) as well as some hard-coded mocks which represets business logic, as schema can't always represent business logic
 
 mocks are validated against schema on every Pull Request | Commit
 
@@ -19,6 +18,9 @@ mocks are validated against schema on every Pull Request | Commit
  * jest
  * npm
  * yarn
+ * composer
+ * json
+ * json schema
   
 ## how to run tests
  * `$ npm test`
