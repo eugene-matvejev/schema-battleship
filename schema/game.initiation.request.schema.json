@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
-  "description": "",
+  "description": "POST on /api/game-init",
   "type": "object",
   "properties": {
     "playerName": {
