@@ -1,0 +1,77 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "description": "response for the game.results.request.schema.json",
+    "type": "object",
+    "properties": {
+        "results": {
+            "id": "properties/collection",
+            "type": "array",
+            "uniqueItems": true,
+            "minItems": 0,
+            "items": {
+                "required": [
+                    "id",
+                    "timestamp"
+                ],
+                "properties": {
+                    "id": {
+                        "id": "properties/result/id",
+                        "type": "integer"
+                    },
+                    "timestamp": {
+                        "id": "properties/result/timestamp",
+                        "type": "string",
+                        "minLength": 1
+                    },
+                    "player": {
+                        "id": "properties/result/player",
+                        "type": "object",
+                        "properties": {
+                            "id": {
+                                "id": "properties/result/player/id",
+                                "type": "integer"
+                            },
+                            "name": {
+                                "id": "properties/result/player/name",
+                                "type": "string",
+                                "minLength": 1
+                            },
+                            "flags": {
+                                "id": "properties/result/player/flags",
+                                "type": "integer"
+                            }
+                        },
+                        "required": [
+                            "id",
+                            "name",
+                            "flags"
+                        ]
+                    }
+                }
+            }
+        },
+        "meta": {
+            "type": "object",
+            "properties": {
+                "currentPage": {
+                    "id": "properties/meta/currentPage",
+                    "type": "integer",
+                    "minimum": 1
+                },
+                "totalPages": {
+                    "id": "properties/meta/totalPages",
+                    "type": "integer",
+                    "minimum": 1
+                }
+            },
+            "required": [
+                "currentPage",
+                "totalPages"
+            ]
+        }
+    },
+    "required": [
+        "results",
+        "meta"
+    ]
+}

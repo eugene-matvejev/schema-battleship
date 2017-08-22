@@ -1,0 +1,7 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "description": "GET on /api/game-results/page/{id}",
+    "type": "object",
+    "properties": {
+    }
+}
