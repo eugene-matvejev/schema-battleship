@@ -1,15 +1,16 @@
 {
-  "name": "sandbox",
-  "version": "0.1.0",
-  "description": "json request|response schemas for the Battleship Game API|GUI",
-  "main": "index.js",
-  "scripts": {
-    "test": "node node_modules/jest/bin/jest.js --verbose"
-  },
-  "author": "Eugene Matvejev <eugene.matvejev@gmail.com>",
-  "license": "ISC",
-  "dependencies": {
-    "jest": "^18.0.4",
-    "jsonschema": "^1.1.1"
-  }
+    "name": "sandbox",
+    "version": "0.2.0",
+    "description": "json request|response schemas for the Battleship Game API|GUI",
+    "main": "index.js",
+    "scripts": {
+        "test": "node node_modules/jest/bin/jest.js --verbose"
+    },
+    "author": "Eugene Matvejev <eugene.matvejev@gmail.com>",
+    "license": "ISC",
+    "dependencies": {},
+    "devDependencies": {
+        "jest": "^20.0.4",
+        "jsonschema": "^1.1.1"
+    }
 }
