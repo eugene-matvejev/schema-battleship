@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
-  "description": "response for the game.initialtion.request.schema.json",
+  "description": "response for the game.init.request.schema.json",
   "type": "array",
   "minItems": 2,
   "uniqueItems": true,
