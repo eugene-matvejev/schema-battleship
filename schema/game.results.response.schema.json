@@ -9,6 +9,7 @@
             "uniqueItems": true,
             "minItems": 0,
             "items": {
+                "id": "properties/results",
                 "required": [
                     "id",
                     "timestamp"
