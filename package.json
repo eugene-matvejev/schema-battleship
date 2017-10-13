@@ -1,5 +1,5 @@
 {
-    "name": "sandbox",
+    "name": "battleship-game-api-json-schema",
     "version": "1.0.0",
     "description": "json request|response schemas for the Battleship Game API|GUI",
     "main": "index.js",
