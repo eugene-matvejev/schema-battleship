@@ -9,6 +9,7 @@
             "uniqueItems": true,
             "minItems": 0,
             "items": {
+                "id": "properties/results",
                 "required": [
                     "id",
                     "timestamp"
@@ -20,8 +21,7 @@
                     },
                     "timestamp": {
                         "id": "properties/result/timestamp",
-                        "type": "string",
-                        "minLength": 1
+                        "type": "string"
                     },
                     "player": {
                         "id": "properties/result/player",
@@ -33,8 +33,7 @@
                             },
                             "name": {
                                 "id": "properties/result/player/name",
-                                "type": "string",
-                                "minLength": 1
+                                "type": "string"
                             },
                             "flags": {
                                 "id": "properties/result/player/flags",
