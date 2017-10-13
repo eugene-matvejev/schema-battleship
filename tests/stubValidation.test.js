@@ -75,6 +75,6 @@ describe(`validate stubs against schemas`, () => {
             describe(`:: should be invalid`, () => {
                 el.stubs.invalid.forEach((f) => assertStub(`${inValidStubDir}/${f.name}`, f.name, schema, false));
             });
-        })
+        });
     });
 });
