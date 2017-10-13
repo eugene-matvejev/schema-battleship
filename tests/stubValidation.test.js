@@ -3,19 +3,17 @@ const v         = new Validator();
 
 const schemaDir      = `${__dirname}/../schema/`;
 const stubDir        = `${__dirname}/../stubs`;
-const validMockDir   = `${stubDir}/valid/`;
-const inValidMockDir = `${stubDir}/invalid/`;
+const validStubDir   = `${stubDir}/valid/`;
+const inValidStubDir = `${stubDir}/invalid/`;
 
 const fs = require('fs');
 
 const schemaFiles      = fs.readdirSync(schemaDir);
-const validStubFiles   = fs.readdirSync(validMockDir).map(el => ({ name: el, sequence: 0x00 }));
-const inValidStubFiles = fs.readdirSync(inValidMockDir).map(el => ({ name: el, sequence: 0x00 }));
+const validStubFiles   = fs.readdirSync(validStubDir).map((el) => ({ name: el, sequence: 0x00 }));
+const inValidStubFiles = fs.readdirSync(inValidStubDir).map((el) => ({ name: el, sequence: 0x00 }));
 
-const parseJSON = (path) => {
-    return JSON.parse(fs.readFileSync(path, 'utf8'));
-};
-const assertMock = (absolutePath, fileName, schema, result) => {
+const parseJSON = (path) => JSON.parse(fs.readFileSync(path, 'utf8'));
+const assertStub = (absolutePath, fileName, schema, result) => {
     it(`${fileName}`, () => {
         const json = parseJSON(`${absolutePath}`);
 
@@ -33,6 +31,7 @@ const dataProvider = schemaFiles.map((f) => {
             invalid.push(el);
         }
     });
+
     const valid = [];
     validStubFiles.forEach((el) => {
         if (regex.test(el.name)) {
@@ -51,31 +50,31 @@ const dataProvider = schemaFiles.map((f) => {
     }
 });
 
+describe(`every stub should have a schema`, () => {
+    validStubFiles.forEach((f) => {
+        it(`${f.name}`, () => {
+            expect(f.sequence).toBeGreaterThan(0)
+        });
+    });
+
+    inValidStubFiles.forEach((f) => {
+        it(`${f.name}`, () => {
+            expect(f.sequence).toBeGreaterThan(0)
+        });
+    });
+});
+
 describe(`validate stubs against schemas`, () => {
     dataProvider.forEach((el) => {
         describe(`${el.schemaFile}`, () => {
             const schema = parseJSON(`${schemaDir}/${el.schemaFile}`);
 
             describe(`:: should be valid`, () => {
-                el.stubs.valid.forEach(el => assertMock(`${validStubDir}/${el.name}`, el.name, schema, true))
+                el.stubs.valid.forEach((f) => assertStub(`${validStubDir}/${f.name}`, f.name, schema, true))
             });
             describe(`:: should be invalid`, () => {
-                el.stubs.invalid.forEach(el => assertMock(`${inValidStubDir}/${el.name}`, el.name, schema, false));
+                el.stubs.invalid.forEach((f) => assertStub(`${inValidStubDir}/${f.name}`, f.name, schema, false));
             });
         })
-    });
-});
-
-describe(`every stub should have a schema`, () => {
-    validMockFiles.forEach((f) => {
-        it(`${f.name}`, () => {
-            expect(f.sequence).toBeGreaterThan(0)
-        });
-    });
-
-    inValidMockFiles.forEach((f) => {
-        it(`${f.name}`, () => {
-            expect(f.sequence).toBeGreaterThan(0)
-        });
     });
 });
