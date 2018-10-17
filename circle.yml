@@ -1,11 +1,17 @@
-machine:
-    node:
-        version: 6.9
-
-dependencies:
-    cache_directories:
-        - ~/.npm/
-
-test:
-    override:
-        - npm test
+version: 2
+jobs:
+  test:
+    docker:
+      - image: circleci/node:10.4.0
+    steps:
+      - checkout
+      - run: npm i --verbose
+      - run: npm test -- --coverage
+      - store_artifacts:
+          path: coverage
+          prefix: coverage
+workflows:
+  version: 2
+  test-only:
+    jobs:
+      - test
