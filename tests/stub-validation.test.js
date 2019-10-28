@@ -15,7 +15,7 @@ const inValidStubFiles = fs.readdirSync(inValidStubDir).map((el) => ({ name: el,
 const parseJSON = (path) => JSON.parse(fs.readFileSync(path, 'utf8'));
 const assertStub = (absolutePath, fileName, schema, result) => {
     it(fileName, () => {
-        const json = parseJSON(`${absolutePath}`);
+        const json = parseJSON(absolutePath);
 
         expect(v.validate(json, schema).valid).toBe(result);
     });
