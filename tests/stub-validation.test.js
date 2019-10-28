@@ -14,12 +14,13 @@ const inValidStubFiles = fs.readdirSync(inValidStubDir).map((el) => ({ name: el,
 
 const parseJSON = (path) => JSON.parse(fs.readFileSync(path, 'utf8'));
 const assertStub = (absolutePath, fileName, schema, result) => {
-    it(`${fileName}`, () => {
+    it(fileName, () => {
         const json = parseJSON(`${absolutePath}`);
 
         expect(v.validate(json, schema).valid).toBe(result);
     });
 };
+
 const dataProvider = schemaFiles.map((f) => {
     const regex = new RegExp(`^${f.replace(`.schema.json`, ``)}`);
 
@@ -33,6 +34,7 @@ const dataProvider = schemaFiles.map((f) => {
     });
 
     const valid = [];
+
     validStubFiles.forEach((el) => {
         if (regex.test(el.name)) {
             el.sequence |= 0x01;
@@ -52,13 +54,13 @@ const dataProvider = schemaFiles.map((f) => {
 
 describe(`every stub should have a schema`, () => {
     validStubFiles.forEach((f) => {
-        it(`${f.name}`, () => {
+        it(f.name, () => {
             expect(f.sequence).toBeGreaterThan(0)
         });
     });
 
     inValidStubFiles.forEach((f) => {
-        it(`${f.name}`, () => {
+        it(f.name, () => {
             expect(f.sequence).toBeGreaterThan(0)
         });
     });
@@ -66,12 +68,13 @@ describe(`every stub should have a schema`, () => {
 
 describe(`validate stubs against schemas`, () => {
     dataProvider.forEach((el) => {
-        describe(`${el.schemaFile}`, () => {
+        describe(el.schemaFile, () => {
             const schema = parseJSON(`${schemaDir}/${el.schemaFile}`);
 
             describe(`:: should be valid`, () => {
                 el.stubs.valid.forEach((f) => assertStub(`${validStubDir}/${f.name}`, f.name, schema, true))
             });
+
             describe(`:: should be invalid`, () => {
                 el.stubs.invalid.forEach((f) => assertStub(`${inValidStubDir}/${f.name}`, f.name, schema, false));
             });
