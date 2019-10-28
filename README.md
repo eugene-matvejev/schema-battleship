@@ -1,5 +1,5 @@
-[circle.ci-master-badge]: https://circleci.com/gh/eugene-matvejev/battleship-game-api-json-schema/tree/master.svg?style=svg
-[circle.ci-master-link]: https://circleci.com/gh/eugene-matvejev/battleship-game-api-json-schema/tree/master
+[circle.ci-master-badge]: https://circleci.com/gh/eugene-matvejev/schema-battleship/tree/master.svg?style=svg
+[circle.ci-master-link]: https://circleci.com/gh/eugene-matvejev/schema-battleship/tree/master
 
 |                     | master
 |---                  |---
